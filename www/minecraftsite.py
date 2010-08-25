@@ -8,6 +8,7 @@
 
 import bottle
 from bottle import route
+from bottle import view
 import telnetlib
 
 bottle.debug(True)
