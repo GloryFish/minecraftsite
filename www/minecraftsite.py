@@ -22,7 +22,7 @@ def index():
     except:
         server_status = False
 
-    return (status=server_status)
+    return dict(status=server_status)
 
 @route('/images/:filename')
 def static_image(filename):
