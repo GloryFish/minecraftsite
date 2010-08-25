@@ -18,8 +18,10 @@
          The server is up
          %else:
          The server is down
-         #end
+         %end
       </p>
+      
+      <img src="/images/current.png" />
    </div>
 
 </body>
