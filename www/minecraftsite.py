@@ -14,14 +14,15 @@ bottle.debug(True)
 
 @route('/')
 @route('/index.html')
+@view('home')
 def index():
     try:
         tel = telnetlib.Telnet('minecraft.gloryfish.org', 25565)
-        status = 'Server is up'
+        server_status = True
     except:
-        status = 'Server is down'
+        server_status = False
 
-    return "GloryFish.org Minecraft Server<br >" + status + "<br /><img src='/images/map.png' />"
+    return (status=server_status)
 
 @route('/images/:filename')
 def static_image(filename):
