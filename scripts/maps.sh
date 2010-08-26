@@ -11,7 +11,12 @@ OBAFILE=gfworld-oba-`date +%Y%m%d-%H%M`.png
 ~/git/pynemap/pynemap.py -o $OBFILE -r oblique -v ~/minecraft/gfworld/level.dat 
 ~/git/pynemap/pynemap.py -o $OBAFILE -r oblique_angled -v ~/minecraft/gfworld/level.dat 
 
-ln -s $TOPFILE overhead.png
-ln -s $OBFILE oblique.png
-ln -s $OBAFILE oblique-angled.png
-ln -s $OBFILE current.png
+rf -f overhead.png
+rf -f oblique.png
+rf -f oblique-angled.png
+rf -f current.png
+
+ln $TOPFILE overhead.png
+ln $OBFILE oblique.png
+ln $OBAFILE oblique-angled.png
+ln $OBFILE current.png
