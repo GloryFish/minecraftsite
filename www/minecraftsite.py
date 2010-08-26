@@ -25,6 +25,6 @@ def index():
 
     return dict(status=server_status)
 
-@route('/images/:filename')
-def static_image(filename):
-    bottle.send_file(filename, root='/var/www/minecraft.gloryfish.org/www/')
+@route('/maps/:filename')
+def maps(filename):
+    bottle.send_file(filename, root='/var/www/minecraft.gloryfish.org/www/maps/')
