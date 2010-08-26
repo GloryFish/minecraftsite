@@ -27,4 +27,4 @@ def index():
 
 @route('/maps/:filename')
 def maps(filename):
-    bottle.send_file(filename, root='/var/www/minecraft.gloryfish.org/www/maps/')
+    bottle.send_file(filename, root='/home/gloryfish/git/minecraftsite.git/www/maps/')
