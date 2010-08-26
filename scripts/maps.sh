@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # make catographer maps
-cd ~/git/minecraftsite.git
+cd ~/git/minecraftsite.git/www/maps/
 
 OBFILE=gfworld-ob-`date +%Y%m%d-%H%M`.png
 TOPFILE=gfworld-top-`date +%Y%m%d-%H%M`.png
