@@ -29,4 +29,4 @@ def index():
 def maps(filename):
     bottle.send_file(filename, root='/home/gloryfish/git/minecraftsite.git/www/maps/')
 
-bottle.run()
+bottle.run(host="minecraft.gloryfish.org", port=80)
