@@ -21,7 +21,7 @@
          %end
       </p>
       
-      <img src="/maps/current.png" />
+      <a href="/maps/current.png"><img style="width: 600px;" src="/maps/current.png" /></a>
    </div>
 
 </body>
