@@ -13,8 +13,10 @@ from bottle import route
 from bottle import view
 import telnetlib
 import socket
+import os
 
 bottle.debug(True)
+os.chdir('/home/gloryfish/git/minecraftsite/www/')
 
 @route('/')
 @route('/index.html')
