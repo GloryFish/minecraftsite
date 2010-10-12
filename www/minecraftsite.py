@@ -12,6 +12,7 @@ import bottle
 from bottle import route
 from bottle import view
 import telnetlib
+import socket
 
 bottle.debug(True)
 
@@ -31,4 +32,7 @@ def index():
 def maps(filename):
     bottle.send_file(filename, root='/home/gloryfish/git/minecraftsite/www/maps/')
 
-bottle.run(host="minecraft.gloryfish.org", port=80)
+try:
+    bottle.run(host="minecraft.gloryfish.org", port=80)
+except socket.error, e:
+    print "Error starting server: %s" % e
