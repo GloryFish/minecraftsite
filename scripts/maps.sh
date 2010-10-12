@@ -9,7 +9,7 @@ NIGHTFILE=gfworld-night-`date +%Y%m%d-%H%M`.png
 CAVEFILE=gfworld-cave-`date +%Y%m%d-%H%M`.png
 
 ~/git/c10t/c10t -o $TOPFILE -w ~/minecraft/gfworld/
-~/git/c10t/c10t -o $OBAFILE -w ~/minecraft/gfworld/ -y
+~/git/c10t/c10t -o $OBAFILE -w ~/minecraft/gfworld/ -y --show-players --ttf-path ~/git/c10t/font.ttf
 ~/git/c10t/c10t -o $NIGHTFILE -w ~/minecraft/gfworld/ -y --night
 ~/git/c10t/c10t -o $CAVEFILE -w ~/minecraft/gfworld/ -y --cave-mode
 
