@@ -5,8 +5,9 @@
 <head>
 	<meta charset="utf-8">
 	<title>GloryFish.org Minecraft Server</title>
-	
-	<meta name="description" content="Status page for the GloiryFish.org Minecraft server.">
+
+	<meta name="description" content="Status page for the GloryFish.org Minecraft server.">
+	<link rel="shortcut icon" href="http://minecraft.net/favicon.ico">
 </head>
 
 <body>
