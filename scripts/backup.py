@@ -3,9 +3,11 @@
 # 
 #  backup.py
 #  minecraftsite
+#
+#  Zips up a world directory and uploads it to an S3 bucket.
+#  The first run creates a default config file.
 #  
 #  Created by Jay Roberts on 2010-10-15.
-#  Copyright 2010 DesignHammer. All rights reserved.
 # 
 
 import sys
