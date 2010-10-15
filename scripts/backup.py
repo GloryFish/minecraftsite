@@ -33,6 +33,9 @@ def zipdir(path, z):
         for f in files:
             z.write(os.path.join(root, f))
             
+def updateprogress(current, total):
+    print "Uploading: %d%%" % int(float(current) * 100/ total)
+
 
 if __name__ == '__main__':
     os.chdir(os.path.dirname(sys.argv[0]))
@@ -64,20 +67,29 @@ if __name__ == '__main__':
 
     # Zip up world directory
 
-    # worldname-20101051.zip
+    # Format: worldname-20101051.zip
     filename = "%s-%s.zip" % (config.get('backup', 'world'), datetime.now().strftime('%Y%m%d-%H%M'))
 
     worlddir = config.get('backup', 'mcpath') + config.get('backup', 'world')
 
-    print "Backing up %s" % worlddir
+    print "Archiving %s" % worlddir
     
     z = zipfile.ZipFile(config.get('backup', 'backuppath') + filename, 'w')
     
     zipdir(worlddir, z)
-    z.close()
-    
+
+    z.close()    
+
+    print "Created %s" % filename    
+
     # Upload to S3
-    
+    print "Connecting to S3"
     conn = boto.connect_s3(aws_access_key_id=config.get('aws', 'key'), aws_secret_access_key=config.get('aws', 'secret'))
-    
+
+    bucket = conn.get_bucket(config.get('aws', 'bucket'))
+    key = bucket.new_key(filename)
+   
+    print "Saving archive to bucket: %s" % config.get('aws', 'bucket')
+    key.set_contents_from_filename(config.get('backup', 'backuppath') + filename, cb=updateprogress)    
+
     print "Backup complete."
