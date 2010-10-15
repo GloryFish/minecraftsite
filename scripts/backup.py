@@ -44,11 +44,11 @@ if __name__ == '__main__':
         except ConfigParser.Error, cpe:
             print 'load_config(): ' + cpe
     else:
-        print 'Creating default backup.ini'
-
         try:
             config_file = open('backup.ini', 'w')
             config.write(config_file)
+            print 'Default backup.ini created.'
+            exit()
         except Exception, e:
             print 'load_config(): ' + e
         finally:
