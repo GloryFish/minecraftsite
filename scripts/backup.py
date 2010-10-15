@@ -8,6 +8,7 @@
 #  Copyright 2010 DesignHammer. All rights reserved.
 # 
 
+import sys
 import os
 import ConfigParser
 from StringIO import StringIO
@@ -29,6 +30,8 @@ def zipdir(path, z):
             
 
 if __name__ == '__main__':
+    print sys.argv[0]
+    
     # Load configuration
     try:
         config = ConfigParser.ConfigParser()
@@ -58,8 +61,8 @@ if __name__ == '__main__':
     
     print filename
     
-    z = zipfile.ZipFile(filename, 'w')
-    
-    zipdir(config.get('backup', 'mcpath'), z)
-    z.close()
+    # z = zipfile.ZipFile(filename, 'w')
+    # 
+    # zipdir(config.get('backup', 'mcpath'), z)
+    # z.close()
     
