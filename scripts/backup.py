@@ -30,7 +30,7 @@ def zipdir(path, z):
             
 
 if __name__ == '__main__':
-    print sys.argv[0]
+    os.chdir(os.path.dirname(sys.argv[0]))
     
     # Load configuration
     try:
