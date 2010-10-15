@@ -1,2 +1,3 @@
 www/maps/*.png
 www/*.pyc
+scripts/*.ini
