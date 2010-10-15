@@ -21,8 +21,12 @@ default_config = """
 world = worldname
 mcpath = /path/to/mc
 backuppath = /path/to/backups
-"""
 
+[aws]
+key = YOURKEY
+secret = YOURSECRET
+bucket = bucketname
+"""
 
 def zipdir(path, z):
     for root, dirs, files in os.walk(path):
@@ -57,8 +61,12 @@ if __name__ == '__main__':
             print 'load_config(): ' + e
         finally:
             config_file.close()
-    
+
+    # Zip up world directory
+
+    # worldname-20101051.zip
     filename = "%s-%s.zip" % (config.get('backup', 'world'), datetime.now().strftime('%Y%m%d-%H%M'))
+
     worlddir = config.get('backup', 'mcpath') + config.get('backup', 'world')
 
     print "Backing up %s" % worlddir
@@ -67,5 +75,9 @@ if __name__ == '__main__':
     
     zipdir(worlddir, z)
     z.close()
+    
+    # Upload to S3
+    
+    conn = boto.connect_s3(aws_access_key_id=config.get('aws', 'key'), aws_secret_access_key=config.get('aws', 'secret'))
     
     print "Backup complete."
