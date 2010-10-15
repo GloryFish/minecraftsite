@@ -51,7 +51,7 @@ if __name__ == '__main__':
         try:
             config_file = open('backup.ini', 'w')
             config.write(config_file)
-            print 'Default backup.ini created.'
+            print 'Default backup.ini created. Please edit and retry backup.'
             exit()
         except Exception, e:
             print 'load_config(): ' + e
@@ -61,11 +61,11 @@ if __name__ == '__main__':
     filename = "%s-%s.zip" % (config.get('backup', 'world'), datetime.now().strftime('%Y%m%d-%H%M'))
     worlddir = config.get('backup', 'mcpath') + config.get('backup', 'world')
 
-    print "backing up %s" % worlddir
+    print "Backing up %s" % worlddir
     
     z = zipfile.ZipFile(config.get('backup', 'backuppath') + filename, 'w')
     
     zipdir(worlddir, z)
     z.close()
     
-    
+    print "Backup complete."
