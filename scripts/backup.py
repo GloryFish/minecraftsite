@@ -34,7 +34,11 @@ def zipdir(path, z):
             z.write(os.path.join(root, f))
             
 def updateprogress(current, total):
-    print "Uploading: %d%%" % int(float(current) * 100/ total)
+    message = "Uploading: %d%%" % int(float(current) * 100 / total)
+    sys.stdout.write(message)
+    sys.stdout.flush()
+    sys.stdout.write("\b" * len(message))
+    sys.stdout.flush()
 
 
 if __name__ == '__main__':
