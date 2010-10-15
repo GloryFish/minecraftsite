@@ -20,6 +20,7 @@ default_config = """
 [backup]
 world = worldname
 mcpath = /path/to/mc
+backuppath = /path/to/backups
 """
 
 
@@ -58,11 +59,13 @@ if __name__ == '__main__':
             config_file.close()
     
     filename = "%s-%s.zip" % (config.get('backup', 'world'), datetime.now().strftime('%Y%m%d-%H%M'))
+    worlddir = config.get('backup', mcpath) + config.get('backup', 'world')
+
+    print "backing up %s" % worlddir
     
-    print filename
+    z = zipfile.ZipFile(config.get('backup', 'backuppath') + filename, 'w')
     
-    # z = zipfile.ZipFile(filename, 'w')
-    # 
-    # zipdir(config.get('backup', 'mcpath'), z)
-    # z.close()
+    zipdir(worlddir, z)
+    z.close()
+    
     
