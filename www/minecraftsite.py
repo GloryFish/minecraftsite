@@ -39,6 +39,11 @@ def gmap():
 def scripts(filename):
     bottle.send_file(filename, root='/home/gloryfish/git/minecraftsite/www/scripts/')
 
+@route('/tiles/:filename')
+def scripts(filename):
+    bottle.send_file(filename, root='/home/gloryfish/git/minecraftsite/www/tiles/')
+
+
 @route('/maps/:filename')
 def maps(filename):
     bottle.send_file(filename, root='/home/gloryfish/git/minecraftsite/www/maps/')
