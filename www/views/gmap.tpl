@@ -7,8 +7,8 @@
   body { height: 100%; margin: 0px; padding: 0px ; background-color: #000; }
   #mcmap { height: 100% }
 </style>
-<script type="text/javascript" src="markers.js"></script>
-<script type="text/javascript" src="regions.js"></script>
+<script type="text/javascript" src="/scripts/markers.js"></script>
+<script type="text/javascript" src="/scripts/regions.js"></script>
 <script type="text/javascript"
     src="http://maps.google.com/maps/api/js?sensor=false">
 </script>

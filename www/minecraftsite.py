@@ -30,11 +30,24 @@ def index():
 
     return dict(status=server_status)
 
+@route('/gmap')
+@view('gmap')
+def gmap():
+    return {}
+
+@route('/scripts/:filename')
+def scripts(filename):
+    bottle.send_file(filename, root='/home/gloryfish/git/minecraftsite/www/scripts/')
+
 @route('/maps/:filename')
 def maps(filename):
     bottle.send_file(filename, root='/home/gloryfish/git/minecraftsite/www/maps/')
+
+
 
 try:
     bottle.run(host="minecraft.gloryfish.org", port=80)
 except socket.error, e:
     print "Error starting server: %s" % e
+
+
