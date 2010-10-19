@@ -9,6 +9,7 @@
 
 import cherrypy
 import telnetlib
+from bottle import template
 
 class MinecraftSite:
     @cherrypy.expose
@@ -19,6 +20,6 @@ class MinecraftSite:
         except:
             server_status = False
 
-        return str(server_status)
+        return template('home', status=server_status)
 
-cherrypy.quickstart(MinecraftSite(), '/', '/Users/jroberts/Documents/Source/git/minecraftsite/www/config.ini')
+cherrypy.quickstart(MinecraftSite(), '/', 'config.ini')
