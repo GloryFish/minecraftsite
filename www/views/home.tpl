@@ -8,6 +8,18 @@
 
 	<meta name="description" content="Status page for the GloryFish.org Minecraft server.">
 	<link rel="shortcut icon" href="http://minecraft.net/favicon.ico">
+
+	<style type="text/css">
+	body {
+		font-family: arial;
+	}
+
+	h1 {
+		font-size: 16px;
+	}
+
+	</style>
+
 </head>
 
 <body>
@@ -21,7 +33,8 @@
          The server is down
          %end
       </p>
-      
+      <a href="/gmap">Explore the world &raquo;</a>
+      <br />
       <a href="/maps/current.png"><img style="width: 600px;" src="/maps/current.png" /></a>
    </div>
 
